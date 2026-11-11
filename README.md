@@ -63,6 +63,10 @@ The browser tests run the real extension scripts against a fake Netflix player p
 - Relies on Netflix's private, undocumented player internals, which can change without notice.
 - Image-based subtitle tracks (used for some languages/titles) can't be shown as the second language.
 
+## License
+
+[MIT](LICENSE): free to use, modify, and share, as long as the copyright notice is kept.
+
 ## Disclaimer
 
 Personal hobby project. Not affiliated with, endorsed by, or connected to Netflix. "Netflix" is a trademark of Netflix, Inc.
