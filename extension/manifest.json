@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Dual Subs for Netflix — Player Menu",
+  "version": "1.2.0",
+  "minimum_chrome_version": "111",
+  "description": "Two original Netflix subtitle tracks, stacked in your player. No translation. Adjustable size, spacing, color, and timing.",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.netflix.com/*",
+    "https://*.nflxvideo.net/*",
+    "https://*.nflxso.net/*",
+    "https://*.nflximg.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Dual Subs in the Netflix player",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.netflix.com/*"
+      ],
+      "js": [
+        "core.js",
+        "page-bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://*.netflix.com/*"
+      ],
+      "js": [
+        "core.js",
+        "subtitles.js",
+        "content.js",
+        "player-controls.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "player-panel.html"
+      ],
+      "matches": [
+        "https://*.netflix.com/*"
+      ]
+    }
+  ]
+}

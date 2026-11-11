@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dual subtitle settings</title><link rel="stylesheet" href="player-panel.css"></head>
+<body>
+  <header>
+    <span class="badge" aria-hidden="true">CC<sup>2</sup></span>
+    <h1>Dual Subtitles</h1>
+    <label class="switch" title="Enable or disable (C)"><input id="enabled" type="checkbox" role="switch" aria-label="Enable dual subtitles"><span aria-hidden="true"></span></label>
+    <button id="close" type="button" class="icon" aria-label="Close dual subtitle settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </header>
+  <main>
+    <div id="preview" class="preview" aria-hidden="true">
+      <div class="preview-stack"><span id="preview-primary" class="pl">First language</span><span id="preview-secondary" class="pl sec">Second language</span></div>
+    </div>
+
+    <div id="status-row" class="status" data-phase="waiting" role="status"><span class="dot"></span><span id="status">Connecting to Netflix…</span></div>
+
+    <section class="card">
+      <div class="lang-row">
+        <span class="num">1</span>
+        <div class="lang-body"><span class="label">First language <em>set in Netflix</em></span><strong id="primary">Loading…</strong></div>
+      </div>
+      <div class="lang-row">
+        <span class="num accent">2</span>
+        <label class="lang-body" for="secondary"><span class="label">Second language</span>
+          <span class="select"><select id="secondary"><option value="">Loading Netflix languages…</option></select></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <label class="range" for="primaryScale"><span>First language size</span><output id="primaryScale-value">100%</output><input id="primaryScale" type="range" min="50" max="250" step="5"></label>
+      <label class="range" for="secondaryScale"><span>Second language size</span><output id="secondaryScale-value">80%</output><input id="secondaryScale" type="range" min="40" max="200" step="5"></label>
+      <label class="row"><span>No background</span><span class="switch"><input id="noBackground" type="checkbox" role="switch"><span aria-hidden="true"></span></span></label>
+    </section>
+
+    <details class="card">
+      <summary>More settings</summary>
+      <label class="row"><span>Match subtitle timing</span><span class="switch"><input id="alignTimings" type="checkbox" role="switch"><span aria-hidden="true"></span></span></label>
+      <label class="row"><span>Fullscreen “on” indicator</span><span class="switch"><input id="showIndicator" type="checkbox" role="switch"><span aria-hidden="true"></span></span></label>
+      <label class="range" for="gap"><span>Line gap</span><output id="gap-value">8 px</output><input id="gap" type="range" min="0" max="32" step="1"></label>
+      <label class="range" for="bottom"><span>Bottom margin</span><output id="bottom-value">8%</output><input id="bottom" type="range" min="2" max="30" step="1"></label>
+      <label class="range" for="background"><span>Background opacity</span><output id="background-value">35%</output><input id="background" type="range" min="0" max="90" step="5"></label>
+      <label class="row"><span>Second language color</span><span class="swatches" id="swatches"></span><input id="color" type="color"></label>
+      <label class="row"><span>Second language delay</span><span class="num-input"><input id="offset" type="number" min="-10" max="10" step="0.1"><i>s</i></span></label>
+    </details>
+
+    <div class="actions">
+      <button id="refresh" type="button">Refresh languages</button>
+      <button id="retry" type="button" class="primary-btn" hidden>Retry</button>
+      <button id="reset" type="button">Reset style</button>
+    </div>
+    <p class="hint"><kbd>C</kbd> toggles on/off · Original Netflix tracks · v1.2.0</p>
+  </main>
+  <script src="core.js"></script><script src="player-panel.js"></script>
+</body></html>
